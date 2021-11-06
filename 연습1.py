@@ -210,4 +210,302 @@ a, b = input().split()
 print(int(a)+int(b))
 
 # 26
-#
+# 실수 2개를 입력받아
+# 합을 출력하는 프로그램을 작성해보자.
+
+a = input()
+b = input()
+print(float(a)+float(b))
+
+# 27
+# 10진수를 입력받아 16진수(hexadecimal)로 출력해보자.
+
+a = input()
+n = int(a)            
+print('%x' % n)
+
+# 28
+# 10진수를 입력받아 16진수(hexadecimal)로 출력해보자. (대문자)
+
+a = input()
+n = int(a)            
+print('%X' % n)
+
+# 29
+# 16진수를 입력받아 8진수(octal)로 출력해보자.
+
+a = input()
+n = int(a, 16)   
+print('%o' % n) 
+
+# 30
+# 영문자 1개를 입력받아 10진수 유니코드(Unicode) 값으로 출력해보자.
+
+n = ord(input())
+print(n)
+
+# 31
+# 10진 정수 1개를 입력받아
+# 유니코드 문자로 출력해보자.
+
+a = int(input())
+print(chr(a))
+
+# 32
+# 입력된 정수의 부호를 바꿔 출력해보자.
+
+a = int(input())
+print(-a)
+
+# 33
+# 문자 1개를 입력받아 그 다음 문자를 출력해보자.
+# 영문자 'A'의 다음 문자는 'B'이고, 숫자 '0'의 다음 문자는 '1'이다.
+
+a = input()
+a = ord(a)
+print(chr(a+1))
+
+# 34
+# 정수 2개(a, b)를 입력받아 a에서 b를 뺀 차를 출력하는 프로그램을 작성해보자.
+
+a , b = input().split()
+print(int(a)-int(b))
+
+# 35
+# 실수 2개(f1, f2)를 입력받아 곱을 출력하는 프로그램을 작성해보자.
+
+f1, f2 = input().split()
+f1 = float(f1)
+f2 = float(f2)
+print(f1*f2)
+
+# 36
+# 단어와 반복 횟수를 입력받아 여러 번 출력해보자.
+
+w, n = input().split()
+print(w*int(n))
+
+# 37
+# 반복 횟수와 문장을 입력받아 여러 번 출력해보자.
+
+n = input()
+s = input()
+print(int(n)*s)
+
+# 38
+# 정수 2개(a, b)를 입력받아
+# a를 b번 곱한 거듭제곱을 출력하는 프로그램을 작성해보자.
+
+a,b=input().split()
+c = int(a)**int(b) 
+print(c)
+
+# 39
+# 실수 2개(f1, f2)를 입력받아
+# f1을 f2번 거듭제곱한 값을 출력하는 프로그램을 작성해보자.
+
+f1, f2 = input().split()
+f1 = float(f1)
+f2 = float(f2)
+print(f1**f2)
+
+# 40
+# 정수 2개(a, b) 를 입력받아 a를 b로 나눈 몫을 출력해보자.
+
+a,b=input().split()
+a = int(a)
+b = int(b)
+print(a//b)
+
+# 41
+# 정수 2개(a, b) 를 입력받아 a를 b로 나눈 나머지를 출력해보자.
+
+a,b=input().split()
+a = int(a)
+b = int(b)
+print(a%b)
+
+# 42
+# 실수 1개를 입력받아
+# 소숫점 이하 두 번째 자리까지의 정확도로 반올림한 값을 출력해보자.
+
+a=float(input())
+print( format(a, ".2f") )
+
+# 43
+# 실수 2개(f1, f2)를 입력받아
+# f1 을 f2 로 나눈 값을 출력해보자. 
+# 이 때 소숫점 넷째자리에서 반올림하여 무조건 소숫점 셋째 자리까지 출력한다.
+
+f1, f2 = input().split()
+f1 = float(f1)
+f2 = float(f2)
+print(format(f1/f2, '.3f'))
+
+# 44
+# 정수 2개(a, b)를 입력받아 합, 차, 곱, 몫, 나머지, 나눈 값을 자동으로 계산해보자.
+
+a,b=input().split()
+a = int(a)
+b = int(b)
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a//b)
+print(a%b)
+print(format(a/b,'.2f'))
+
+# 45
+# 정수 3개를 입력받아 합과 평균을 출력해보자.
+
+a,b,c, = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+print(a+b+c, format((a+b+c)/3, '.2f'))
+
+# 46
+# 정수 1개를 입력받아 2배 곱해 출력해보자.
+
+a = int(input())
+print(a*2)
+
+# 47
+# 정수 2개(a, b)를 입력받아 a를 2^b배 곱한 값으로 출력해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a<<b)
+
+# 48
+# 두 정수(a, b)를 입력받아
+# a가 b보다 작으면 True 를, a가 b보다 크거나 같으면 False 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a<b)
+
+# 49
+# 두 정수(a, b)를 입력받아
+# a와 b의 값이 같으면 True 를, 같지 않으면 False 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a==b)
+
+# 50
+# 두 정수(a, b)를 입력받아
+# b의 값이 a의 값 보다 크거나 같으면 True 를, 같지 않으면 False 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a<=b)
+
+# 51
+# 두 정수(a, b)를 입력받아
+# a의 값이 b의 값과 서로 다르면 True 를, 같으면 False 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a!=b)
+
+# 52
+# 정수가 입력되었을 때, True/False 로 평가해주는 프로그램을 작성해보자.
+
+n = int(input())
+print(bool(n))
+
+# 53
+# 정수값이 입력될 때,
+# 그 불 값을 반대로 출력하는 프로그램을 작성해보자.
+
+n = not(bool(int(input())))
+print(n)
+
+# 54
+# 2개의 정수값이 입력될 때,
+# 그 불 값이 모두 True 일 때에만 True 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(bool(a) and bool(b))
+
+# 55
+# 2개의 정수값이 입력될 때,
+# 그 불 값이 하나라도 True 일 때에만 True 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(bool(a) or bool(b))
+
+# 56
+# 2개의 정수값이 입력될 때,
+# 그 불 값(True/False) 이 서로 다를 때에만 True 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+a = bool(a)
+b = bool(b)
+print((a==True and b==False) or (a==False and b == True))
+
+# 57
+# 2개의 정수값이 입력될 때,
+# 그 불 값(True/False) 이 서로 같을 때에만 True 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+a = bool(a)
+b = bool(b)
+print((a==True and b==True) or (a==False and b == False))
+
+# 58
+# 2개의 정수값이 입력될 때,
+# 그 불 값(True/False) 이 모두 False 일 때에만 True 를 출력하는 프로그램을 작성해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+a = bool(a)
+b = bool(b)
+print(a==False and b == False)
+
+# 59
+# 입력 된 정수를 비트단위로 참/거짓을 바꾼 후 정수로 출력해보자.
+
+a = int(input())
+print(~a)
+
+# 60
+# 입력된 정수 두 개를 비트단위로 and 연산한 후 그 결과를 정수로 출력해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a&b)
+
+# 70
+# 입력된 정수 두 개를 비트단위로 or 연산한 후 그 결과를 정수로 출력해보자.
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a|b)
+
+# 71
+# 입력된 정수 두 개를 비트단위로 xor 연산한 후 그 결과를 정수로 출력해보자.
+# 비트 단위가 서로 다른지???
+
+a,b = input().split()
+a = int(a)
+b = int(b)
+print(a^b)
