@@ -1,6 +1,3 @@
-
-'''
-
 # csv(comma separate Value)
 # -csv, 필드를 쉼표(,)로 구분한 테긋트 파일
 # -엑셀 양식의 데이터를 프로그램에 상관없이 쓰기 위한 데이터 형식
@@ -65,7 +62,7 @@ soup = BeautifulSoup(books_xml, "lxml")
 for book_info in soup.find_all("author"):
     print (book_info)
     print (book_info.get_text())
-'''
+
 import urllib.request
 from bs4 import BeautifulSoup
 with open("US08621662-20140107.XML", "r", encoding="utf8") as patent_xml:
