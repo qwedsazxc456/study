@@ -509,3 +509,228 @@ a,b = input().split()
 a = int(a)
 b = int(b)
 print(a^b)
+
+# 63
+# 입력된 두 정수(a, b) 중 큰 값을 출력하는 프로그램을 작성해보자.
+# 단, 3항 연산을 사용한다.
+
+a, b = input().split()
+a = int(a) 
+b = int(b)
+c = (a if (a>=b) else b)
+print(int(c))
+
+# 64
+# 입력된 세 정수 a, b, c 중 가장 작은 값을 출력하는 프로그램을 작성해보자.
+# 단, 3항 연산을 사용한다.
+
+a,b,c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+d = (a if (a<=b) else b) if ((a if (a<=b) else b)<c) else c
+print(d)
+
+# 65
+# 3개의 정수(a, b, c)가 입력되었을 때, 짝수만 출력해보자.
+
+a,b,c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+if a%2==0:
+    print(a)
+if b%2==0:
+    print(b)
+if c%2==0:
+    print(c)
+    
+# 66
+# 3개의 정수(a, b, c)가 입력되었을 때, 짝(even)/홀(odd)을 출력해보자.
+
+a,b,c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+if a%2==0:
+    print('even')
+else:
+    print('odd')
+if b%2==0:
+    print('even')
+else:
+    print('odd')
+if c%2==0:
+    print('even')
+else:
+    print('odd')
+    
+# 67
+# 0이 아닌 정수 1개가 입력되었을 때, 음(-)/양(+)과 짝(even)/홀(odd)을 구분해 분류해보자.
+# 음수이면서 짝수이면, A
+# 음수이면서 홀수이면, B
+# 양수이면서 짝수이면, C
+# 양수이면서 홀수이면, D
+# 를 출력한다.
+
+a = int(input())
+if a<0:
+    if a%2==0:
+        print('A')
+    else:
+        print('B')
+else:
+    if a%2==0:
+        print('C')
+    else:
+        print('D')
+        
+# 68
+# 점수(정수, 0 ~ 100)를 입력받아 평가를 출력해보자.
+# 평가 기준
+# 점수 범위 : 평가
+#  90 ~ 100 : A
+#  70 ~   89 : B
+#  40 ~   69 : C
+#    0 ~   39 : D
+# 로 평가되어야 한다.
+
+a = int(input())
+if a>=90:
+    print('A')
+else:
+    if a >=70:
+        print('B')
+    else:
+        if a >=40:
+            print('C')
+        else: print('D')
+        
+# 69
+# 평가를 문자(A, B, C, D, ...)로 입력받아 내용을 다르게 출력해보자.
+# 평가 : 내용
+# A : best!!!
+# B : good!!
+# C : run!
+# D : slowly~
+# 나머지 문자들 : what?
+
+a = input()
+if a == 'A':
+    print('best!!!')
+else:
+    if a == 'B':
+        print('good!!')
+    else:
+        if a == 'C':
+           print('run!')
+        else:
+            if a == 'D':
+                print('slowly~')
+            else:
+                print('what?')
+
+# 70
+# 월이 입력될 때 계절 이름이 출력되도록 해보자.
+# 월 : 계절 이름
+# 12, 1, 2 : winter
+#   3, 4, 5 : spring
+#   6, 7, 8 : summer
+#   9, 10, 11 : fall
+
+a = int(input())
+if a == 12 or a==1 or a==2:
+    print('winter')
+else:
+    if a == 3 or a==4 or a==5:
+        print('spring')
+    else:
+        if a == 6 or a==7 or a==8:
+            print('summer')
+        else:
+            print('fall')
+            
+# 71
+# 0이 아니면 입력된 정수를 출력하고, 0이 입력되면 출력을 중단해보자.
+
+n=1
+while n != 0:
+    n=int(input())
+    if n != 0:
+        print(n)
+
+# 72
+# 정수(1 ~ 100) 1개가 입력되었을 때 카운트다운을 출력해보자. - 1까지
+
+n=int(input())
+while n!=0 :
+    print(n)
+    n = n-1
+    
+# 73
+# 정수(1 ~ 100) 1개가 입력되었을 때 카운트다운을 출력해보자. - 0까지/입력숫자제외
+
+n=int(input())
+while n > 0 :
+    n = n-1
+    print(n)
+    
+# 74
+# 영문 소문자(a ~ z) 1개가 입력되었을 때,
+# a부터 그 문자까지의 알파벳을 순서대로 출력해보자.
+# a부터 입력한 문자까지 순서대로 공백을 두고 한 줄로 출력한다.
+
+o = ord(input())
+a = ord('a')
+while a <= o:
+    print(chr(a), end=' ')
+    a = a+1
+
+# 75
+# 정수(0 ~ 100) 1개를 입력받아 0부터 그 수까지 순서대로 출력해보자.
+# 0부터 그 수까지 줄을 바꿔 한 개씩 출력한다.
+
+a = int(input())
+b = 0
+while b <= a:
+    print(b)
+    b += 1
+    
+# 76
+# 정수(0 ~ 100) 1개를 입력받아 0부터 그 수까지 순서대로 출력해보자.
+# for 이용
+
+a = int(input())
+for i in range(0,a+1):
+    print(i)
+    
+# 77
+# 정수(1 ~ 100) 1개를 입력받아 1부터 그 수까지 짝수의 합을 구해보자.
+
+a = int(input())
+s = 0
+for i in range(1,a+1):
+    if i%2==0:
+        s += i
+print(s)
+
+# 78
+# 영문 소문자 'q'가 입력될 때까지
+# 입력한 문자를 계속 출력하는 프로그램을 작성해보자.
+
+while a != 'q':
+    a = input()
+    print(a)
+
+# 79
+# 1, 2, 3 ... 을 계속 더해 나갈 때,
+# 그 합이 입력한 정수(0 ~ 1000)보다 같거나 작을 때까지만
+# 계속 더하는 프로그램을 작성해보자.
+
+a = 0
+b = int(input())
+s = 0
+while s < b:
+    a += 1
+    s += a
+print(a)
