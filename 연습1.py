@@ -734,3 +734,147 @@ while s < b:
     a += 1
     s += a
 print(a)
+
+# 80
+# 1부터 n까지, 1부터 m까지 숫자가 적힌 서로 다른 주사위 2개를 던졌을 때,
+# 나올 수 있는 모든 경우를 출력해보자.
+
+n,m = input().split()
+n=int(n)
+m=int(m)
+for i in range(1, n+1) :
+    for j in range(1, m+1) :
+        print(i, j)
+        
+# 81
+# A, B, C, D, E, F 중 하나가 입력될 때,
+# 1부터 F까지 곱한 16진수 구구단의 내용을 출력해보자.
+# (단, A ~ F 까지만 입력된다.)
+
+a= input()
+a= int(a,16)
+for i in range(1,16):
+    print('%X'%a,'*','%X='%i,'%X'%(a*i),sep='')
+
+# 82
+# 3 6 9 게임 - 3,6,9에서 X
+
+a = int(input())
+for i in range(1,a+1):
+    if i % 10 == 3 or i % 10 == 6 or i % 10 == 9:
+        print('X', end=' ') 
+    else:
+        print(i, end=' ')
+    i += 1
+    
+# 83
+# 빨강(r), 초록(g), 파랑(b) 각 빛의 가짓수가 주어질 때,
+# 주어진 rgb 빛들을 섞어 만들 수 있는 모든 경우의 조합(r g b)과 만들 수 있는 색의 가짓 수를 계산해보자.  
+
+r,g,b = input().split()
+r = int(r)
+g = int(g)
+b = int(b)
+for i in range(0,r):
+    for j in range(0,g):
+        for k in range(0,b):
+            print(i,j,k)
+print(r*g*b)
+
+# 84
+# 1초 동안 마이크로 소리강약을 체크하는 횟수를 h
+# (헤르쯔, Hz 는 1초에 몇 번? 체크하는가를 의미한다.)
+# 한 번 체크한 값을 저장할 때 사용하는 비트수를 b
+# (2비트를 사용하면 0 또는 1 두 가지, 16비트를 사용하면 65536가지..)
+# 좌우 등 소리를 저장할 트랙 개수인 채널 개수를 c
+# (모노는 1개, 스테레오는 2개의 트랙으로 저장함을 의미한다.)
+# 녹음할 시간(초) s가 주어질 때,
+# 필요한 저장 용량을 계산하는 프로그램을 작성해보자.
+
+h,b,c,s= input().split()
+h=int(h)
+b=int(b)
+c=int(c)
+s=int(s)
+print(format(h*b*c*s/8/1024/1024,'.1f'),'MB')
+
+# 85
+# 이미지의 가로 해상도 w, 세로 해상도 h, 한 픽셀을 저장하기 위한 비트 b 가 주어질 때,
+# 압축하지 않고 저장하기 위해 필요한 저장 용량을 계산하는 프로그램을 작성해 보자.
+
+w,h,b= input().split()
+w=int(w)
+h=int(h)
+b=int(b)
+print(format(h*b*w/8/1024/1024,'.2f'),'MB')
+
+# 86
+# 1, 2, 3 ... 을 순서대로 계속 더해 합을 만드는데,
+# 그 합이 입력한 정수보다 작을 동안만 계속 더하는 프로그램을 작성해보자.
+
+a=int(input())
+b=0
+s=0
+
+while s < a:
+    b += 1
+    s += b
+print(s)
+
+# 87
+# 1부터 입력한 정수까지 1씩 증가시켜 출력하는 프로그램을 작성하되,
+# 3의 배수인 경우는 출력하지 않도록 만들어보자.
+
+a = int(input())
+for i in range(1,a+1):
+    if i %3 ==0:
+        continue
+    print(i)
+    
+# 88
+# 시작 값(a), 등차(d), 몇 번째인지를 나타내는 정수(n)가 입력될 때
+# n번째 수를 출력하는 프로그램을 만들어보자.
+
+a,d,n = input().split()
+a = int(a)
+d = int(d)
+n = int(n)
+print(a+d*(n-1))
+
+# 89
+# 시작 값(a), 등비(r), 몇 번째인지를 나타내는 정수(n)가 입력될 때
+# n번째 수를 출력하는 프로그램을 만들어보자.
+
+a,r,n = input().split()
+a = int(a)
+r = int(r)
+n = int(n)
+print(a*r**(n-1))
+
+# 90
+# 시작 값(a), 곱할 값(m), 더할 값(d), 몇 번째인지를 나타내는 정수(n)가 입력될 때,
+# n번째 수를 출력하는 프로그램을 만들어보자.
+
+a,m,d,n = input().split()
+a = int(a)
+m = int(m)
+d = int(d)
+n = int(n)
+
+for i in range(1,n):
+    a = a*m+d
+print(a)
+
+# 91
+# 같은 날 동시에 가입한 3명의 사람들이 온라인 채점시스템에 들어와 문제를 푸는 날짜가
+# 매우 규칙적이라고 할 때, 다시 모두 함께 문제를 풀게 되는 그날은 언제일까?
+
+a,b,c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+d = 1
+
+while (d %a !=0) or (d % b !=0) or (d % c != 0):
+    d += 1
+print(d)
