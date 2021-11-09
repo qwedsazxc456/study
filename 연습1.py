@@ -878,3 +878,156 @@ d = 1
 while (d %a !=0) or (d % b !=0) or (d % c != 0):
     d += 1
 print(d)
+
+# 92
+# 출석 번호를 n번 무작위로 불렀을 때, 각 번호(1 ~ 23)가 불린 횟수를 각각 출력해보자.
+
+n = int(input())     
+a = input().split()
+b=[]
+for i in range(0,23):
+    b.append(0)
+for i in range(0,n):
+    b[int(a[i])-1] += 1
+for i in range(0,23):
+    print( b[i] , end=' ')
+    
+# 93
+# 출석 번호를 n번 무작위로 불렀을 때, 부른 번호를 거꾸로 출력해 보자.
+
+n = int(input())     
+a = input().split()
+
+for i in range(0,n):
+    print(a[n-1-i], end=' ')
+
+# 94
+# 출석 번호를 n번 무작위로 불렀을 때, 가장 빠른 번호를 출력해 보자.
+
+n = int(input())     
+a = input().split()
+for i in range(0,n):
+    a[i]=int(a[i])
+print(min(a))
+
+# 95
+# 바둑판(19 * 19)에 n개의 흰 돌을 놓는다고 할 때,
+# n개의 흰 돌이 놓인 위치를 출력하는 프로그램을 작성해보자.
+
+n = int(input())     
+b=[]
+
+for i in range(19):
+    b.append([])
+    for j in range(19):
+        b[i].append(0)
+
+for i in range(n):
+    x,y = input().split()
+    if b[int(x)-1][int(y)-1] == 1:
+        continue
+    b[int(x)-1][int(y)-1] += 1
+
+for i in range(19):
+    for j in range(19):
+        print(b[i][j],end=' ')
+    print(end='\n')
+        
+# 96
+# 바둑판(19 * 19)에 흰 돌(1) 또는 검정 돌(0)이 모두 꽉 채워져 놓여있을 때,
+# n개의 좌표를 입력받아 십(+)자 뒤집기한 결과를 출력하는 프로그램을 작성해보자.
+
+a=[] 
+for i in range(19):
+    a.append([])
+    a[i]=input().split()
+    for j in range(19):
+        a[i][j] = int(a[i][j])
+              
+n = int(input())
+for k in range(n):
+    x, y = input().split()
+    for i in range(19):    
+        for j in range(19):     
+            if j != int(y)-1:       
+                if a[int(x)-1][j] == 1:
+                    a[int(x)-1][j] = 0
+                else:
+                    a[int(x)-1][j] = 1
+        if i != int(x)-1:
+            if a[i][int(y)-1] == 1:
+                a[i][int(y)-1] = 0
+            else:
+                a[i][int(y)-1] = 1
+
+for i in range(19):
+    for j in range(19):
+        print(a[i][j], end=' ')
+    print(end='\n')
+
+# 97
+# 격자판의 세로(h), 가로(w), 막대의 개수(n), 각 막대의 길이(l),
+# 막대를 놓는 방향(d:가로는 0, 세로는 1)과
+# 막대를 놓는 막대의 가장 왼쪽 또는 위쪽의 위치(x, y)가 주어질 때,
+# 격자판을 채운 막대의 모양을 출력하는 프로그램을 만들어보자.
+
+a = input().split()
+a[0]=int(a[0])
+a[1]=int(a[1])
+b= []
+for i in range(a[0]):
+    b.append([])
+    for j in range(a[1]):
+        b[i].append(0)
+        
+c = int(input())
+for i in range(c):
+    d,e,f,g = input().split()
+    if int(e) == 0:
+        for j in range(int(d)):
+            b[int(f)-1][int(g)-1+j] = 1
+    else:
+        for j in range(int(d)):
+            b[int(f)-1+j][int(g)-1] = 1
+
+for i in range(int(a[0])):
+    for j in range(int(a[1])):
+        print(b[i][j], end=' ')
+    print(end='\n')    
+    
+# 98
+# 개미는 오른쪽으로 움직이다가 벽을 만나면 아래쪽으로 움직여 가장 빠른 길로 움직였다.
+# (오른쪽에 길이 나타나면 다시 오른쪽으로 움직인다.)
+# 미로 상자의 구조가 0(갈 수 있는 곳), 1(벽 또는 장애물)로 주어지고,
+# 먹이가 2로 주어질 때, 성실한 개미의 이동 경로를 예상해보자.
+    
+b = []
+for i in range(10):
+    a = input().split()
+    b.append([])
+    for j in range(10):
+        b[i].append(int(a[j]))
+        
+c=[1,1]
+b[1][1]=9
+while True:
+    if b[c[0]][c[1]+1] == 0:
+        b[c[0]][c[1]+1] = 9
+        c[1] += 1
+    elif b[c[0]][c[1]+1] == 2:
+        b[c[0]][c[1]+1] = 9
+        break
+    elif b[c[0]+1][c[1]] == 0:
+        b[c[0]+1][c[1]] = 9
+        c[0] += 1
+    elif b[c[0]+1][c[1]] == 2:
+        b[c[0]+1][c[1]] = 9
+        break
+    else:
+        break
+    
+for i in range(10):
+    for j in range(10):
+        print(b[i][j], end=' ')
+    print(end='\n')
+    
