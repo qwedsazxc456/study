@@ -271,7 +271,8 @@ n=int(input())
 a = list(map(int, input().split()))
 print(min(a),max(a))
 
-# 9개의 서로 다른 자연수가 주어질 때, 이들 중 최댓값을 찾고 그 최댓값이 몇 번째 수인지를 구하는 프로그램을 작성하시오.
+# 9개의 서로 다른 자연수가 주어질 때,
+# 이들 중 최댓값을 찾고 그 최댓값이 몇 번째 수인지를 구하는 프로그램을 작성하시오.
 
 a = []
 for i in range(9):
@@ -279,3 +280,78 @@ for i in range(9):
     
 print(max(a))
 print(a.index(max(a))+1)
+
+# 세 개의 자연수 A, B, C가 주어질 때
+# A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
+
+a = int(input())
+b = int(input())
+c = int(input())
+d = str(a*b*c)
+e = 0
+for i in range(10):
+    for j in range(len(d)):
+        if int(d[j]) == i:
+           e += 1
+    print(e)
+    e=0
+    
+# 수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다. 
+# 그 다음 서로 다른 값이 몇 개 있는지 출력하는 프로그램을 작성하시오.
+
+a=[]
+d=[]
+for i in range(10):
+    b = int(input())
+    a.append(b)
+for i in range(10):
+    c = a[i]%42
+    d.append(c)
+print(len(set(d)))
+
+# 모든 점수를 점수/M*100으로 고쳤다.
+# 새로운 평균을 구하는 프로그램을 작성하시오.
+
+a=int(input())
+b=map(int, input().split())
+b = list(b)
+print(sum(b)/a*100/max(b))
+
+# "OOXXOXXOOO"와 같은 OX퀴즈의 결과가 있다. O는 문제를 맞은 것이고, X는 문제를 틀린 것이다. 문제를 맞은 경우 그 문제의 점수는 그 문제까지 연속된 O의 개수가 된다. 예를 들어, 10번 문제의 점수는 3이 된다.
+# "OOXXOXXOOO"의 점수는 1+2+0+0+1+0+0+1+2+3 = 10점이다.
+# OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
+
+n = int(input())
+b = 0
+c = 0
+for i in range(n):
+    a = input()
+    for j in range(len(a)):
+       if a[j] == 'O':
+            b += 1
+            c += b
+       else:
+           b=0
+    print(c)
+    b=0
+    c=0
+    
+# 대학생 새내기들의 90%는 자신이 반에서 평균은 넘는다고 생각한다. 당신은 그들에게 슬픈 진실을 알려줘야 한다.
+
+n = int(input())
+c = 0
+for i in range(n):
+    a = map(int, input().split())
+    a = list(a)
+    b = (sum(a)-a[0])/(len(a)-1)
+    for j in range(1,len(a)):
+        if a[j]>b:
+            c += 1
+    print('%.3f'%(c/(len(a)-1)*100),'%',sep='')
+    c = 0
+    
+# 정수 n개가 주어졌을 때, n개의 합을 구하는 함수를 작성하시오.
+
+def solve(a):
+    return sum(a)
+    
