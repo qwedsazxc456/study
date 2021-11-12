@@ -354,4 +354,30 @@ for i in range(n):
 
 def solve(a):
     return sum(a)
+
+# 10000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+
+def sn(a):
+    a = str(a)
+    b = 0
+    for i in range(len(a)):
+        b += int(a[i])
+    c = int(a)+b
+    return c
+
+i=1
+l=[]
+while i <= 10000:
+   l.append(sn(i))
+   i += 1
+   
+for i in range(1,10001):
+    if i not in l:
+        print(i)
+        
+# N보다 작거나 같은 한수의 개수를 출력하는 프로그램을 작성하시오.
+        
+    
+        
+
     
