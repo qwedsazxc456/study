@@ -376,7 +376,40 @@ for i in range(1,10001):
         print(i)
         
 # N보다 작거나 같은 한수의 개수를 출력하는 프로그램을 작성하시오.
-        
+
+a = int(input())
+b =0
+if a < 100:
+    print(a)
+elif a<1000:
+    for i in range(100,a+1):
+        i = str(i)
+        if int(i[1])-int(i[0])==int(i[2])-int(i[1]):
+            b += 1
+    print(99+b)
+else: print(144)     
+
+# 알파벳 소문자, 대문자, 숫자 0-9중 하나가 주어졌을 때, 주어진 글자의 아스키 코드값을 출력하는 프로그램을 작성하시오.
+
+a=input()
+print(ord(a))      
+
+# N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.
+
+a = int(input())
+b = list(map(int,input()))
+print(sum(b))
+
+# 알파벳 소문자로만 이루어진 단어 S가 주어진다. 각각의 알파벳에 대해서, 단어에 포함되어 있는 경우에는 처음 등장하는 위치를, 포함되어 있지 않은 경우에는 -1을 출력하는 프로그램을 작성하시오
+
+S = input()
+abc ='abcdefghijklmnopqrstuvwxyz'
+
+for i in abc:
+    if i in S:
+        print(S.index(i), end= ' ')
+    else:
+        print( -1, end =' ')
     
         
 
