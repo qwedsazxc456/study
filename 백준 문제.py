@@ -411,6 +411,15 @@ for i in abc:
     else:
         print( -1, end =' ')
     
-        
+# 10250
+n = int(input())
+for i in range(n):
+    h,w,n=map(int, input().split())
+    f = n%h
+    r = n//h+1
+    if f == 0:
+        r = r-1
+        f = h
+    print(f*100+r)    
 
     
