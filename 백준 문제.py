@@ -485,7 +485,18 @@ for i in a:
         b.append(10)
 print(sum(b))
 
+# 2941
 
+a = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+b = input()
+
+for i in a:
+    b = b.replace(i,'.')
+print(len(b))
+
+
+                
+    
         
         
         
