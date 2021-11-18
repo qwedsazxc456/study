@@ -8,7 +8,7 @@
 # - c,c++,포트란 등의 언어와 통합 가능
 
 import numpy as np 
-'''
+
 test_array = np.array([1,4,5,8],float)
 print(test_array)
 print(type(test_array[3]))
@@ -76,7 +76,6 @@ print(test_example)
 # -matrix의 부분 집합을 추출할 때 유용
 
 
-'''
 
 # creation function
 

@@ -494,7 +494,49 @@ for i in a:
     b = b.replace(i,'.')
 print(len(b))
 
+# 1712
 
+a,b,c = map(int, input().split())
+if b >= c:
+    print(-1)
+else:
+    print(a//(c-b)+1)
+    
+# 2292
+
+n=int(input())
+a=0
+while 3*a**2+3*a+1<n:
+    a += 1
+print(a+1)
+
+# 1193
+
+x = int(input())
+n = 1
+while n*(n+1)/2 < x:
+    n += 1
+a = (n**2-n)/2
+if n % 2 ==0:
+    print('%d/%d'%(x-a,n+1-(x-a)))
+else:
+    print('%d/%d'%(n+1-(x-a),x-a))
+    
+# 2869
+
+a,b,v = map(int, input().split())
+c = (v-a)//(a-b)
+if (v-a)%(a-b)==0:
+    print(c+1)
+else:
+    print(c+2)
+    
+
+
+
+
+        
+        
                 
     
         
