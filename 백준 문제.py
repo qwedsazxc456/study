@@ -577,7 +577,80 @@ print(a+b)
 
 # 1011
 
-       
+t = int(input())
+n = 0
+for i in range(t):
+    x,y = map(int, input().split())
+    while True:
+        if y-x == 1:
+            print(1)
+            break
+        else:
+            n += 1
+            if y-x <= n*(n+1):
+                print(2*n)
+                n = 0
+                break
+            else:
+                if y-x <= n*(n+1)+n+1:
+                    print(2*n+1)
+                    n = 0
+                    break
+
+# 2749
+n = int(input())
+n = n%1500000
+a,b = 0,1
+for i in range(n):
+    a,b = b%1000000,(a+b)%1000000  
+print(a%1000000)
+
+# 1978
+n = int(input())
+b = list(map(int, input().split()))
+a=[2]
+c=0
+for i in range(3,1000):
+    for j in a:
+        if i%j ==0:
+            c += 1
+    if c == 0:
+        a.append(i)
+    c = 0
+for i in b:
+    if i in a:
+        c += 1
+print(c)         
+
+# 2581
+
+m=int(input())
+n=int(input())
+
+a=[2]
+b=[]
+c=0
+for i in range(3,10000):
+    for j in a:
+        if i%j ==0:
+            c += 1
+    if c == 0:
+        a.append(i)
+    c = 0
+
+for i in range(m,n+1):
+    if i in a:
+        b.append(i)
+        
+if b == []:
+    print(-1)
+else:
+    print(sum(b))
+    print(min(b))
+    
+# 11653
+
+
 
 
         
