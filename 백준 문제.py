@@ -531,8 +531,22 @@ if (v-a)%(a-b)==0:
 else:
     print(c+2)
     
+# 2775
 
+from math import factorial
 
+t = int(input())
+s = 0
+for i in range(t):
+    k = int(input())
+    n = int(input()) 
+    for j in range(1,n+1):
+        s += factorial(n+k-2)/factorial(k-1)/factorial(n-1)*j
+        n -= 1
+    print(int(s))
+    s = 0
+        
+        
 
 
         
