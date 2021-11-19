@@ -546,7 +546,38 @@ for i in range(t):
     print(int(s))
     s = 0
         
-        
+# 2839
+
+n = int(input())
+a=-1
+b=0
+c=[]
+while 5*a < n:
+    a += 1
+    if 5*a == n:
+        c.append(a)
+    while 5*a+3*b < n:
+        b += 1
+        if 5*a+3*b == n:
+            c.append(a+b)
+            b = 0
+            break
+        if 5*a+3*b > n:
+            b = 0
+            break
+if c == []:
+    print(-1)
+else:
+    print(min(c))
+
+# 10757
+
+a,b=map(int, input().split())
+print(a+b)
+
+# 1011
+
+       
 
 
         
