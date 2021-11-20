@@ -648,7 +648,42 @@ else:
     print(sum(b))
     print(min(b))
     
+# 1316
+
+n = int(input())
+c = 0
+d = 0
+for i in range(n):
+    a = input()
+    l = len(a)
+    for j in range(l-1):
+        if a[j] != a[j+1]:
+            if a[j] in a[j+2:l]:
+                c += 1
+    if c == 0:
+        d += 1
+    c = 0
+print(d)
+                
 # 11653
+
+n = int(input())
+a = []
+i = 2
+if n != 1:
+    while i <= n:
+        if n % i == 0:
+            a.append(i)
+            n = n//i
+        else:
+            i += 1
+    if a == []:
+        print(n)
+    else:
+        a.sort()
+        for i in a:
+            print(i)
+          
 
 
 
