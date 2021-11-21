@@ -684,7 +684,21 @@ if n != 1:
         for i in a:
             print(i)
           
+# 1929
 
+m,n = map(int, input().split())
+
+c=0
+for i in range(m,n+1):
+    for j in range(2,int(i**0.5)+1):
+        if i%j ==0:
+            c += 1
+            break
+    if c == 0:
+        if i != 1:    
+            print(i)
+    c=0
+    
 
 
 
