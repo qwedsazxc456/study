@@ -699,6 +699,26 @@ for i in range(m,n+1):
             print(i)
     c=0
     
+# 4948
+
+b=0
+c=0
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    for i in range(n+1,n*2+1):
+        for j in range(2,int(i**0.5)+1):
+            if i%j ==0:
+                c += 1
+                break
+        if c == 0:
+            if i != 1:
+                b += 1             
+        c=0
+    print(b)
+    b=0
+
 
 
 
