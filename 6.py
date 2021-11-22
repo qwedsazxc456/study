@@ -5,7 +5,7 @@
 # 행 - instance, tuple, row
 
 import pandas as pd
-'''
+
 df_data=pd.read_csv() # 불러오기
 
 df_data.head() # 위에서 5개
@@ -35,7 +35,7 @@ print(example_obj)
 
 # index 값을 기준으로 series 생성 / 값 없으면 NaN값
 
-'''
+
 
 # dataframe
 
@@ -79,6 +79,26 @@ print(example_obj)
 
 # corr() 모든 상관관계
 
- 
 
- 
+
+# groupby
+# df.groupby('column')['적용받는 컬럼'].sum()
+# df.groupby(['',''])[].sum() # 컬럼 여러개 가능
+
+# Hierarchical index
+# index 여러개 만들어진다
+
+# unstack - matrix로 만들어준다 / stack
+# reset_index()
+
+# swaplevel() - column 순서 바꾼다
+
+# grouped - 튜플형태로 
+# get_group 으로 가져온다
+
+# aggratation
+# agg 로 grouped된 상태에서 column별로 - 한줄씩 X / column별로
+
+# groupby-filter
+
+### groupby filter R에서 쓰는것과 비슷하게??? 
