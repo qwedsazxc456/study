@@ -719,9 +719,134 @@ while True:
     print(b)
     b=0
 
+# 9020
 
+n = int(input())
 
+a=[2]
+c=0
+for i in range(3,10000,2):
+    for j in a:
+        if i%j ==0:
+            c += 1
+    if c == 0:
+        a.append(i)
+    c = 0
 
+b=[]
+c=[]
+for _ in range(n):
+    p = int(input())
+    e=0
+    while a[e]<p/2:
+        e +=1
+    for i in a[e:]:
+        for j in a[e::-1]:
+            if p == i+j:
+                b.append(j)
+                b.append(i)                
+    if len(b)==2:
+        print(b[0],b[1])
+    else:
+        for i in range(0,int(len(b)/2)+2,2):
+            c.append(b[i+1]-b[i])
+        d=c.index(min(c))
+        print(b[2*d],b[2*d+1])
+        d=0
+    b=[]
+    c=[]    
+
+# 1085
+
+x,y,w,h = map(int, input().split())
+print(min(x,y,abs(w-x),abs(y-h)))
+
+# 3009
+
+a = []
+for _ in range(3):
+    a.append(input().split())
+for i in range(3):
+    c = 0
+    for j in range(3):
+        if a[i][0] != a[j][0]:
+            c += 1
+    if c == 2:
+        print(a[i][0], end=' ')
+        
+for i in range(3):
+    c = 0
+    for j in range(3):
+        if a[i][1] != a[j][1]:
+            c += 1
+    if c == 2:
+        print(a[i][1])
+
+# 4153
+
+while True:
+    l = list(map(int, input().split()))
+    if l==[0,0,0]:
+        break
+    l.sort()
+    if l[2]**2 == l[0]**2+l[1]**2:
+        print('right')
+    else:
+        print('wrong')
+        
+# 3053
+
+from math import pi
+
+r = int(input())
+print(r**2*pi)
+print(r**2*2)
+
+# 1002
+
+n = int(input())
+for _ in range(n):
+    x1, y1, r1, x2, y2, r2 = map(int, input().split())
+    d1 = ((x2-x1)**2+(y2-y1)**2)**0.5
+    d2 = abs(r2-r1)
+    d3 = abs(r2+r1)
+    if d1 ==0 and d2==0:
+        print(-1)
+    else:    
+        if d1 < d2 or d1 > d3:
+            print(0)
+        elif d1 == d2 or d1 == d3:
+            print(1)
+        else:
+            print(2)
+
+# 10872
+
+n = int(input())
+
+def factorial(n):
+    if n ==0:
+        return 1
+    else:
+        return factorial(n-1)*n
+
+print(factorial(n))
+
+# 10870
+
+n = int(input())
+
+def fi(n):
+    if n ==0:
+        return 0
+    if n ==1:
+        return 1
+    else:
+        return fi(n-1)+fi(n-2)
+
+print(fi(n))
+
+# 
         
         
                 
