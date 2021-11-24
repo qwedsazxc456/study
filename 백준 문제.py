@@ -846,7 +846,22 @@ def fi(n):
 
 print(fi(n))
 
-#   
+# 2798
+
+n,m =map(int, input().split())
+a = list(map(int, input().split()))
+b = []
+
+for i in range(len(a)):
+    for j in range(i+1,len(a)):
+        for k in range(j+1,len(a)):
+            s=a[i]+a[j]+a[k]
+            if s <= m:
+                b.append(s)
+
+print(max(b))
+
+
         
         
                 
