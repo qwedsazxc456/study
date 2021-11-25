@@ -861,6 +861,24 @@ for i in range(len(a)):
 
 print(max(b))
 
+# 11729
+
+n=int(input())
+
+def hanoi_1(n):
+    return 1 if n ==1 else hanoi_1(n-1)*2+1
+
+def hanoi_2(n,a,b,c):
+    if n ==1:
+        print(a,c)
+    else:
+        hanoi_2(n-1,a,c,b)
+        print(a,c)
+        hanoi_2(n-1,b,a,c)
+        
+print(hanoi_1(n))
+hanoi_2(n,1,2,3)
+
 
         
         
