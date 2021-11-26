@@ -934,7 +934,7 @@ else:
     print(b[0][0]) 
 print(max(a)-min(a))
 
-
+#
         
         
                 
