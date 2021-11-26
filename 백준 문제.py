@@ -879,6 +879,61 @@ def hanoi_2(n,a,b,c):
 print(hanoi_1(n))
 hanoi_2(n,1,2,3)
 
+# 2750
+
+import sys
+n=int(input())
+a=[]
+for i in range(n):
+    b = int(sys.stdin.readline())
+    a.append(b)
+a.sort()
+for i in a:
+    print(i)
+    
+# 2751
+
+import sys
+n=int(input())
+a=[]
+for i in range(n):
+    b = int(sys.stdin.readline())
+    a.append(b)
+a.sort()
+for i in a:
+    print(i)
+    
+# 10989
+
+import sys
+n=int(input())
+a=[0]*10001
+for i in range(n):
+    b = int(sys.stdin.readline())
+    a[b] += 1
+for i in range(10001):
+    for j in range(a[i]):
+        print(i)
+        
+# 2108
+
+import sys
+from collections import Counter
+n=int(sys.stdin.readline())
+a=[]
+for i in range(n):
+    b = int(sys.stdin.readline())
+    a.append(b)
+a.sort()
+print(round(sum(a)/n))
+print(a[n//2])
+b=Counter(a).most_common()
+if len(b) != 1 and b[0][1] == b[1][1]:
+    print(b[1][0]) 
+else:
+    print(b[0][0]) 
+print(max(a)-min(a))
+
 
         
         
