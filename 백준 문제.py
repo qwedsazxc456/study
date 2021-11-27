@@ -934,9 +934,64 @@ else:
     print(b[0][0]) 
 print(max(a)-min(a))
 
-#
+# 1427
+
+n=input()
+a=[]
+for i in range(len(n)):
+    a.append(n[i])
+a.sort(reverse=True)
+for i in range(len(n)):
+    print(a[i],end='')
         
-        
+# 11650
+
+n=int(input())
+a=[]
+for i in range(n):
+    b,c=map(int, input().split())
+    a.append([b,c])
+a.sort()
+for i in a:
+    print(i[0],i[1])   
+    
+# 11651
+
+n=int(input())
+a=[]
+for i in range(n):
+    b,c=map(int, input().split())
+    a.append([b,c])
+a.sort(key=lambda x:(x[1],x[0]))
+for i in a:
+    print(i[0],i[1])
+    
+# 1181
+
+n=int(input())
+a=[]
+for i in range(n):
+    b=input()
+    a.append(b)
+a=list(set(a))
+a.sort(key=lambda x:(len(x),x))
+for i in a:
+    print(i)
+    
+# 10814
+
+n=int(input())
+a=[]
+for i in range(n):
+    b,c=input().split()
+    a.append([int(b),c])
+a.sort(key=lambda x:x[0])
+for i in a:
+    print(i[0],i[1])
+    
+# 18870
+
+    
                 
     
         
