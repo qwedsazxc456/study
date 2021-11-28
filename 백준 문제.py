@@ -989,11 +989,110 @@ a.sort(key=lambda x:x[0])
 for i in a:
     print(i[0],i[1])
     
+# 2231
+
+n = int(input())
+n_1=str(n)
+b=0
+list_1=[]
+if len(n_1) < 3:
+    x=0
+else: x= n-len(n_1)*9
+for i in range(x,n):
+    a = str(i)
+    for j in range(len(a)):
+        b += int(a[j])
+    b += i
+    if b == n:
+        list_1.append(i)
+    b=0
+if list_1==[]:
+    list_1.append(0)
+           
+print(min(list_1))
+
 # 18870
 
-    
+import sys
+
+n=int(sys.stdin.readline())
+a=list(map(int, sys.stdin.readline().split()))
+b=list(set(a))
+b.sort()
+c={b[i]:i for i in range(len(b))}
+for i in a:
+    print(c[i],end=' ')  
                 
+# 7568
+
+n = int(input())
+list_1=[]
+c=1
+for i in range(n):
+    a,b=map(int, input().split())
+    list_1.append([a,b])
+for i in range(n):
+    for j in range(n):
+        if i != j:
+            if list_1[i][0] < list_1[j][0] and list_1[i][1] < list_1[j][1]:
+                c += 1
+    print(c, end=' ')
+    c = 1
     
+# 1018
+
+import sys
+input_1=sys.stdin.readline
+
+a='WB'*4
+b='BW'*4
+chess_1=[[a],[b]]*4
+chess_2=[[b],[a]]*4
+
+list_1=[]
+list_2=[]
+c=0
+n,m = map(int, input().split())
+for i in range(n):
+    a=input_1().strip()
+    list_1.append([a])
+   
+  
+for i in range(n-7):
+    for j in range(m-7):
+        for k in range(i,8+i):
+            for l in range(j,8+j):
+                if str(list_1[k])[2+l] != str(chess_1[k-i])[2+l-j]:
+                    c += 1
+        list_2.append(c)
+        c = 0
+        
+for i in range(n-7):
+    for j in range(m-7):
+        for k in range(i,8+i):
+            for l in range(j,8+j):
+                if str(list_1[k])[2+l] != str(chess_2[k-i])[2+l-j]:
+                    c += 1
+        list_2.append(c)
+        c = 0
+
+print(min(list_2))
+### 리스트 str로 바꾸면 ['']도 가져온다
+
+#1436
+
+n=int(input())
+i=666
+list_1=[]
+while len(list_1) <= n:
+    s=str(i)
+    for j in range(len(s)-2):
+        if s[j]=='6' and s[j+1]=='6' and s[j+2]=='6':
+            list_1.append(i)
+            break
+    i += 1
+print(list_1[n-1])  
+
         
         
         
