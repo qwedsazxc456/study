@@ -27,7 +27,7 @@ def binary_search(array, target, start, end):
         if array[mid] == target:
             return mid
         elif array[mid]>target:
-            emd = mid-1
+            end = mid-1
         else:
             start=mid+1
     return None
@@ -51,3 +51,25 @@ print(bisect_right(a,x)) #4
 # 파라메트릭 서치(Parametric Search)
 # 최적화 문제를 결정 문제로 바꾸어 해결하는 기법
 
+# 1920
+
+n = int(input())
+list_1 = list(map(int, input().split()))
+m = int(input())
+list_2 = list(map(int, input().split()))
+list_1.sort()
+
+def bi(list_1,x,s,e):
+    while s <= e:
+        m = (s+e)//2
+        if list_1[m]==x:
+            return 1
+        elif list_1[m]<x:
+            s = m+1
+        else:
+            e = m-1
+    return 0
+
+
+for i in list_2:
+    print(bi(list_1,i,0,n-1)) 
