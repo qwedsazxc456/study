@@ -19,3 +19,32 @@ for i in coin[::-1]:
 print(c)   
         
 # 1931
+
+import sys
+imput=sys.stdin.readline
+n = int(input())
+a=[]
+for _ in range(n):
+    s,e = map(int, input().split())
+    a.append([s,e])
+a.sort(key=lambda x:(x[1],x[0]))
+c=1
+end=a[0][1]
+for i in range(1,n):
+    if end <= a[i][0]:
+        end = a[i][1]
+        c += 1
+print(c) 
+
+# 11399
+
+n = int(input())
+a=list(map(int, input().split()))
+a.sort()
+s=0
+for i in range(n):
+    s += a[i]*(n-i)
+print(s)   
+
+# 1541
+
