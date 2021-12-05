@@ -42,3 +42,24 @@ for _ in range(k):
         a.pop()
 print(sum(a))
 
+# 9012
+
+n = int(input())
+b=[]
+for i in range(n):
+    a=input()
+    for j in a:
+        if j == '(':
+            b.append(1)
+        else:
+            if b:
+                b.pop()
+            else:
+                b.append(0)
+                break
+    if not b:
+        print('YES')
+    else:
+        print('NO')
+    b=[]
+    

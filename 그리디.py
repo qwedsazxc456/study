@@ -48,3 +48,25 @@ print(s)
 
 # 1541
 
+a=input().split('-')
+s = 0
+for i in a[0].split('+'):
+    s += int(i)
+for i in a[1:]:
+    for j in i.split('+'):
+        s -= int(j)
+print(s)
+
+# 13305
+
+n = int(input())
+d = list(map(int, input().split()))
+p = list(map(int, input().split()))
+price=p[0]
+s = 0
+for i in range(n-1):
+    if p[i]<price:
+        price=p[i]
+    s += price*d[i]
+print(s)
+
