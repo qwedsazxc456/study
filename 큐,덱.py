@@ -36,3 +36,4 @@ def que(x):
 for _ in range(n):
     x = input().strip()
     que(x)
+
