@@ -63,3 +63,37 @@ for i in range(n):
         print('NO')
     b=[]
     
+# 4949
+
+while True:
+    a=[]
+    b=True
+    s=input()
+    if s=='.':
+        break
+    for i in s:
+        if i =='(' or i =='[':
+            a.append(i)
+        elif i ==')':
+            if not a :
+                b=False
+                break
+            elif a[-1]=='(':
+                a.pop()
+            else:
+                b=False
+                break
+        elif i == ']':
+            if not a:
+                b=False
+                break
+            elif a[-1]=='[':
+                a.pop()
+            else:
+                b=False
+                break
+    if b==True and not a:
+        print('yes')
+    else:
+        print('no')
+          
