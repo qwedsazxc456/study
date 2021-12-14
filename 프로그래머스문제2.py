@@ -47,3 +47,30 @@ def solution(s):
         return 1
     else:
         return 0
+    
+# 문자열 압축하기
+
+def solution(s):
+    c=1
+    l=len(s)
+    t=0
+    for i in range(1,len(s)//2+1):
+        for j in range(0,len(s)-i,i):
+            if s[j:j+i]!=s[j+i:j+2*i]:
+                if c != 1:
+                    t += len(str(c))
+                c=1
+                t += i
+                if j+2*i>=len(s):
+                    t += len(s[j+i:len(s)])
+            else:
+                c += 1
+                if j == len(s)-2*i:
+                    t += len(str(c))
+                    t += i
+                    c=1                           
+        if t < l:
+            l=t
+        t=0
+    return l
+
