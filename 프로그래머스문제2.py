@@ -31,3 +31,19 @@ def solution(w,h):
     answer = w*h-answer*g
     return answer
 
+# 짝지어 제거하기
+
+def solution(s):
+    a=[]
+    for i in s:
+        if not a:
+            a.append(i)
+        else:
+            if i == a[-1]:
+                a.pop()
+            else:
+                a.append(i)
+    if not a:
+        return 1
+    else:
+        return 0
