@@ -74,3 +74,19 @@ def solution(s):
         t=0
     return l
 
+# 타겟넘버
+
+from collections import deque
+def solution(numbers, target):
+    a=deque([0])
+    for i in range(len(numbers)):
+        for _ in range(2**i):
+            p=a.popleft()
+            a.append(p+numbers[i])
+            a.append(p-numbers[i])
+    c=0
+    for i in a:
+        if i == target:
+            c += 1
+    return c
+
