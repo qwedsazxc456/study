@@ -90,3 +90,31 @@ def solution(numbers, target):
             c += 1
     return c
 
+# 메뉴 리뉴얼
+
+from itertools import combinations as comb
+from collections import Counter as count
+def solution(orders, course):
+    answer = []
+    for i in course:
+        a=[]
+        for j in orders:
+            li=list(comb(j,i))
+            for l in li:
+                li_2=[]
+                for t in l:
+                    li_2.append(t)
+                li_2.sort()
+                s=''.join(li_2)
+                a.append(s)
+        c=count(a)
+        if c:
+            M=max(c.values())
+            if M > 1:
+                for k in c:
+                    if c[k] == M:
+                        answer.append(k)
+
+    answer.sort()       
+    return answer
+
