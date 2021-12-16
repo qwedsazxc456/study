@@ -118,3 +118,19 @@ def solution(orders, course):
     answer.sort()       
     return answer
 
+# 더 맵게
+
+import heapq
+def solution(scoville, K):
+    heapq.heapify(scoville)
+    c=0
+    while scoville[0]<K:        
+        f=heapq.heappop(scoville)
+        s=heapq.heappop(scoville)
+        heapq.heappush(scoville,f+2*s)  
+        c+=1
+        if len(scoville) ==1 and scoville[0]<K:
+            return -1
+    
+    return c
+
