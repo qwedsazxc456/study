@@ -134,3 +134,48 @@ def solution(scoville, K):
     
     return c
 
+# 튜플
+
+def solution(s):
+    s=s[2:-2]
+    s=s.split('},{')
+    s.sort(key=len)
+    a=[]
+    for i in s:
+        for j in i.split(','):
+            j=int(j)
+            if j not in a:
+                a.append(int(j))
+    return a
+
+# 기능개발
+
+from collections import deque
+def solution(progresses, speeds):
+    p=deque(progresses)
+    s=deque(speeds)
+    i=0
+    a=[]
+    c=0
+    while p:
+        if p[0]+s[0]*i >= 100:
+            p.popleft()
+            s.popleft()
+            c += 1
+        else:
+            i += 1
+            if c != 0:
+                a.append(c)
+                c=0
+        if not p:
+            a.append(c)
+    return a
+
+# 전화번호 목록
+
+def solution(phone_book):
+    phone_book.sort()
+    for a,b in zip(phone_book[:-1],phone_book[1:]):
+        if a == b[:len(a)]:
+            return False
+    return True
