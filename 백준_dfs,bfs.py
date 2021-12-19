@@ -42,3 +42,62 @@ print()
 bfs(v)
 
 # 2606
+
+n = int(input())
+m = int(input())
+v=[False]*(n+1)
+g=[[] for _ in range(n+1)]
+for _ in range(m):
+    b,c=list(map(int, input().split()))
+    g[b].append(c)
+    g[c].append(b)
+def bfs(g,v,s):
+    v[s]=True
+    for i in g[s]:
+        if not v[i]:
+            bfs(g,v,i)
+bfs(g,v,1)
+print(v.count(True)-1)
+
+# 2667
+
+n = int(input())
+matrix=[]
+g=[[] for _ in range(n**2+1)]
+v=[False]*(n**2+1)
+
+for _ in range(n):
+    r=input()
+    matrix.append(r)
+    
+for i in range(n):
+    for j in range(n-1):
+        if matrix[i][j] == '1' and matrix[i][j+1]== '1':
+            g[i*n+j].append(i*n+j+1)
+            g[i*n+j+1].append(i*n+j)
+
+for j in range(n):
+    for i in range(n-1):
+        if matrix[i][j] == '1' and matrix[i+1][j]== '1':
+            g[i*n+j].append((i+1)*n+j)
+            g[(i+1)*n+j].append(i*n+j)
+
+def bfs(g,v,s):
+    v[s]=True
+    for i in g[s]:
+        if not v[i]:
+            bfs(g,v,i)
+a=[]
+c=0
+for i in range(n):
+    for j in range(n):
+        if matrix[i][j] == '1' and not v[i*n+j]:
+            bfs(g,v,i*n+j)
+            a.append(v.count(True)-sum(a))
+            c += 1
+a.sort()
+print(c)
+for i in a:
+    print(i)
+    
+# 
