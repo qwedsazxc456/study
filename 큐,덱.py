@@ -37,3 +37,14 @@ for _ in range(n):
     x = input().strip()
     que(x)
 
+# 2164
+
+from collections import deque
+
+n=int(input())
+a=deque([i for i in range(n,0,-1)])
+while len(a) > 1:
+    a.pop()
+    p=a.pop()
+    a.appendleft(p)
+print(a[0])
