@@ -48,3 +48,23 @@ while len(a) > 1:
     p=a.pop()
     a.appendleft(p)
 print(a[0])
+
+# 11866
+
+n,k=map(int, input().split())
+l=k-1
+a=[i for i in range(1,n+1)]
+b=[]
+while a:
+    p=a.pop(k-1)
+    b.append(str(p))
+    k += l
+    if k > len(a) and a:
+        k=k%len(a)
+        if k == 0:
+            k=len(a)
+print('<',end='')
+for i in b[:-1]:
+    print(i,', ',end='',sep='')
+print(b[-1],end='')
+print('>')
