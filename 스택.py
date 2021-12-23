@@ -97,4 +97,29 @@ while True:
     else:
         print('no')
 
-   
+# 1874
+
+n=int(input())
+a=[]
+b=[0]
+c=[]
+for _ in range(n):
+    a.append(int(input()))
+a.reverse()
+i=1
+while a:
+    if b[-1]==a[-1]:
+        a.pop()
+        b.pop()
+        c.append('-')
+    else:
+        b.append(i)
+        c.append('+')
+        i += 1
+    if i == n+2:
+        break
+if a:
+    print('NO')
+else:
+    for i in c:
+        print(i)
