@@ -123,3 +123,16 @@ if a:
 else:
     for i in c:
         print(i)
+
+# 17298
+
+n = int(input())
+a = list(map(int, input().split()))
+nge=[-1]*n
+stack=[]
+for i in range(n):
+    while stack and a[stack[-1]] < a[i]:
+        p=stack.pop()
+        nge[p]=a[i]
+    stack.append(i)
+print(*nge)
