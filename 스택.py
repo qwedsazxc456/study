@@ -136,3 +136,5 @@ for i in range(n):
         nge[p]=a[i]
     stack.append(i)
 print(*nge)
+
+#
