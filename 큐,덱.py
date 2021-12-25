@@ -68,3 +68,25 @@ for i in b[:-1]:
     print(i,', ',end='',sep='')
 print(b[-1],end='')
 print('>')
+
+# 1966
+
+from collections import deque
+t = int(input())
+for i in range(t):
+    n,m=map(int, input().split())
+    a=deque(list(map(int, input().split())))
+    b=deque([i for i in range(n)])
+    c=0
+    r=-1
+    while r != m:
+        if a[0]==max(a):
+            c += 1
+            a.popleft()
+            r=b.popleft()
+        else:
+            p=a.popleft()
+            q=b.popleft()
+            a.append(p)
+            b.append(q)
+    print(c)
