@@ -90,3 +90,40 @@ for i in range(t):
             a.append(p)
             b.append(q)
     print(c)
+    
+# 5430
+
+from collections import deque
+import sys
+input=sys.stdin.readline
+
+t = int(input())
+for _ in range(t):
+    f=input().rstrip()
+    n=int(input())
+    a=input().rstrip()
+    if a=='[]':
+        a=[]
+    else:
+        a=deque(a[1:-1].split(','))
+    e=0
+    r=0
+    for i in f:
+        if i == 'R':
+            r += 1
+        else:
+            if not a:
+                print('error')
+                e=1
+                break
+            elif r%2 == 0:
+                a.popleft()
+            else:
+                a.pop()
+    if e == 0:
+        if r % 2 == 0:
+            print('['+','.join(a)+']')
+        else:
+            a.reverse()
+            print('['+','.join(a)+']')
+            

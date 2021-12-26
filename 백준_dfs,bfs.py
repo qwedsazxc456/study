@@ -100,4 +100,32 @@ print(c)
 for i in a:
     print(i)
     
-# 
+# 1012
+
+t = int(input())
+def bfs(r,c):
+    a[c][r]=0
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
+    for i in range(4):
+        x=r+dx[i]
+        y=c+dy[i]
+        if -1<x<m and -1<y<n:
+            if a[y][x] == 1:
+                a[y][x] = 0
+                bfs(x,y)                             
+    
+for _ in range(t):
+    m,n,k=map(int, input().split())
+    a=[[0 for _ in range(m)] for _ in range(n)]
+    cnt=0
+    for _ in range(k):
+        r,c=map(int, input().split())
+        a[c][r]=1
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] ==1:
+                bfs(j,i)
+                cnt += 1
+    print(cnt)
+
