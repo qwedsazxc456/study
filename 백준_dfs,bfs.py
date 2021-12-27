@@ -129,3 +129,32 @@ for _ in range(t):
                 cnt += 1
     print(cnt)
 
+# 2178
+
+from collections import deque
+n,m=map(int, input().split())
+maze=[]
+for _ in range(n):
+    a=input()
+    b=[]
+    for i in a:
+        b.append(int(i))
+    maze.append(b)
+
+def bfs(x,y):
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
+    q=deque([[x,y]])
+    while q:
+        x,y=q.popleft()
+        for i in range(4):
+            x_2=x+dx[i]
+            y_2=y+dy[i]
+            if -1<x_2<m and -1<y_2<n:
+                if maze[y_2][x_2] == 1:
+                    maze[y_2][x_2] = maze[y][x]+1
+                    q.append([x_2,y_2])
+        
+bfs(0,0)
+print(maze[n-1][m-1])
+
