@@ -158,3 +158,38 @@ def bfs(x,y):
 bfs(0,0)
 print(maze[n-1][m-1])
 
+# 7576
+
+from collections import deque
+
+m,n=map(int, input().split())
+a=[]
+for _ in range(n):
+    a.append(list(map(int, input().split())))
+
+def bfs(a,c):
+    q=deque()
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] == 1:
+                q.append([i,j])
+    while q:
+        c += 1
+        for _ in range(len(q)):
+            x,y=q.popleft()
+            for i in range(4):
+                nx=x+dx[i]
+                ny=y+dy[i]
+                if -1<nx<n and -1<ny<m:
+                    if a[nx][ny] == 0:
+                        q.append([nx,ny])
+                        a[nx][ny] = 1
+    for i in a:
+        if 0 in i:
+            return -1
+            
+    return c
+
+print(bfs(a,-1))
