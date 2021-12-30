@@ -238,3 +238,22 @@ def bfs(a,c):
 
 print(bfs(a,0))
 
+# 1697
+
+from collections import deque
+n,k = map(int, input().split())
+c=0
+q=deque([n])
+v=[False]*100001
+while q:
+    if k in q:
+        print(c)
+        break
+    for _ in range(len(q)):
+        p=q.popleft()
+        if -1<p<100001 and not v[p]:
+            v[p] = True
+            q.append(p+1)
+            q.append(p-1)
+            q.append(2*p)
+    c += 1
