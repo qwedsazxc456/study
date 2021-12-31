@@ -137,4 +137,4 @@ for i in range(n):
     stack.append(i)
 print(*nge)
 
-#
+# 
