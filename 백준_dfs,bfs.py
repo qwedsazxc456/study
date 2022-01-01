@@ -257,3 +257,32 @@ while q:
             q.append(p-1)
             q.append(2*p)
     c += 1
+    
+# 7562
+
+from collections import deque
+t=int(input())
+
+m_1=[1,1,-1,-1,2,2,-2,-2]
+m_2=[2,-2,2,-2,1,-1,1,-1]
+for _ in range(t):
+    i=int(input())    
+    start_x,start_y=map(int, input().split())
+    end_x,end_y=map(int, input().split())
+    v=[[False]*i for _ in range(i)]
+    q=deque([[start_x,start_y]])
+    c=0
+    while True:
+        if [end_x,end_y] in q:
+            print(c)
+            break
+        for _ in range(len(q)):
+            x,y=q.popleft()
+            for j in range(8):
+                nx=x+m_1[j]
+                ny=y+m_2[j]
+                if -1<nx<i and -1<ny<i:
+                    if not v[nx][ny]:
+                        q.append([nx,ny])
+                        v[nx][ny]=True
+        c += 1
