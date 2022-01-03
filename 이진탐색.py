@@ -86,3 +86,26 @@ b=list(map(int, input().split()))
 for i in b:
     print(bisect_right(a,i)-bisect_left(a,i),end=' ')
     
+# 1654
+
+k,n=map(int, input().split())
+a=[]
+for _ in range(k):
+    a.append(int(input()))
+a.sort()
+j=0
+b=[]
+s=1
+e=max(a)
+while True:
+    m=(s+e)//2
+    b=[]
+    for i in a:
+        b.append(i//m)
+    if sum(b) >= n:
+        s = m+1
+    else:
+        e = m-1
+    if s > e:
+        print(s-1)
+        break
