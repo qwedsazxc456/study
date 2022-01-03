@@ -39,7 +39,7 @@ def binary_search(array, target, start, end):
 
 from bisect import bisect_left, bisect_right
 
-a=[1,2,4,4,5]
+a=[1,2,4,4,8]
 x=4
 
 print(bisect_left(a,x)) #2
@@ -50,6 +50,7 @@ print(bisect_right(a,x)) #4
 
 # 파라메트릭 서치(Parametric Search)
 # 최적화 문제를 결정 문제로 바꾸어 해결하는 기법
+# 결정 문제('예' 혹은 '아니오')
 
 # 1920
 
@@ -73,3 +74,15 @@ def bi(list_1,x,s,e):
 
 for i in list_2:
     print(bi(list_1,i,0,n-1)) 
+
+# 10816
+
+from bisect import bisect_right,bisect_left
+n=int(input())
+a=list(map(int, input().split()))
+a.sort()
+m=int(input())
+b=list(map(int, input().split()))
+for i in b:
+    print(bisect_right(a,i)-bisect_left(a,i),end=' ')
+    
