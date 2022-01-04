@@ -109,3 +109,24 @@ while True:
     if s > e:
         print(s-1)
         break
+    
+# 2805
+
+n,m=map(int, input().split())
+a=list(map(int, input().split()))
+a.sort()
+s=0
+e=max(a)
+while True:
+    me=(s+e)//2
+    b=[]
+    for i in a:
+        if i-me > 0:
+            b.append(i-me)
+    if sum(b) >= m:
+        s = me+1
+    else:
+        e = me-1
+    if s > e:
+        print(s-1)
+        break
