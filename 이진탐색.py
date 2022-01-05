@@ -130,3 +130,20 @@ while True:
     if s > e:
         print(s-1)
         break
+    
+# 1300
+
+n=int(input())
+k=int(input())
+s,e=1,min(10**9, n**2)
+while s <= e:
+    m=(s+e)//2
+    t=0
+    for i in range(1,n+1):
+        t += min(m//i,n)
+    if t < k:
+        s = m+1
+    else:
+        a=m
+        e = m-1
+print(a)
