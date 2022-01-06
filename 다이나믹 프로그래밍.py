@@ -77,3 +77,25 @@ for i in range(3,k+3):
             a[j][i] = max(a[j-1][i], a[j-1][i-a[j][0]]+a[j][1])
 
 print(a[n][k+2])
+
+# 9184
+
+w=[[[1]*21 for _ in range(21)] for _ in range(21)]
+while True:
+    a,b,c = map(int, input().split())
+    if a==-1 and b==-1 and c==-1:
+        break
+    if a <= 0 or b <= 0 or c <= 0:
+        print('w(%d, %d, %d)'%(a,b,c), '=', 1)
+    elif a > 20 or b > 20 or c > 20:
+        print('w(%d, %d, %d)'%(a,b,c), '=', 1048576)
+    else:
+        for i in range(1,a+1):
+            for j in range(1,b+1):
+                for k in range(1,c+1):
+                    if i<j<k:
+                        w[i][j][k] =  w[i][j][k-1] + w[i][j-1][k-1] - w[i][j-1][k]
+                    else:
+                        w[i][j][k] = w[i-1][j][k] + w[i-1][j-1][k] + w[i-1][j][k-1] - w[i-1][j-1][k-1]
+        print('w(%d, %d, %d)'%(a,b,c), '=', w[a][b][c])
+        
