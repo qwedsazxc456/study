@@ -99,3 +99,26 @@ while True:
                         w[i][j][k] = w[i-1][j][k] + w[i-1][j-1][k] + w[i-1][j][k-1] - w[i-1][j-1][k-1]
         print('w(%d, %d, %d)'%(a,b,c), '=', w[a][b][c])
         
+# 1904
+
+n=int(input())
+if n ==1 :
+    print(1)
+elif n ==2 :
+    print(2)
+else:
+    a,b=1,2
+    for _ in range(n-2):
+        a,b=b%15746,(a+b)%15746
+    print(b)
+    
+# 9467
+
+a=[1,1,1,2,2]+[0 for _ in range(95)]
+t=int(input())
+for i in range(95):
+    a[i+5] = a[i]+a[i+4]
+for _ in range(t):
+    n = int(input())
+    print(a[n-1])
+    
