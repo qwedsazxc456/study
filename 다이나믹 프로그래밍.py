@@ -154,3 +154,24 @@ for i in range(1,n):
             a[i][j] += max(a[i-1][j-1],a[i-1][j])
 print(max(a[n-1]))
 
+# 2579 
+
+import sys
+input=sys.stdin.readline
+
+n=int(input())
+a=[]
+for _ in range(n):
+    a.append(int(input()))
+    
+if n == 1:
+    print(a[0])
+elif n == 2:
+    print(sum(a))
+else:
+    b=[0]*n
+    b[0],b[1],b[2]=a[0],a[0]+a[1],a[2]+max(a[0],a[1])  
+    for i in range(3,n):
+        b[i] = max(b[i-3]+a[i-1],b[i-2])+a[i]
+    print(b[n-1])
+    
