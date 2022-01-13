@@ -175,3 +175,24 @@ else:
         b[i] = max(b[i-3]+a[i-1],b[i-2])+a[i]
     print(b[n-1])
     
+# 1463
+
+from collections import deque
+n =int(input())
+
+a=[0]*1000001
+q=deque()
+q.append(1)
+c=1
+if n != 1:
+    while a[n] == 0:
+        for _ in range(len(q)):
+            p=q.popleft()
+            dp=[p+1,2*p,3*p]
+            for i in dp:
+                if i<1000001 and a[i] == 0:
+                    a[i] = c
+                    q.append(i)
+        c += 1
+
+print(a[n])
