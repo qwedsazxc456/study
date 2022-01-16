@@ -212,3 +212,24 @@ for i in range(2,n+1):
         else:
             a[i][j] = a[i-1][j-1]+a[i-1][j+1]
 print(sum(a[n])%1000000000)
+
+# 2156
+
+import sys
+input=sys.stdin.readline
+
+n = int(input())
+a=[]
+for _ in range(n):
+    a.append(int(input()))
+if n ==1:
+    print(a[0])
+elif n ==2:
+    print(a[0]+a[1])
+else:
+    b=[0]*n
+    b[0],b[1],b[2]=a[0],a[0]+a[1],max(a[0]+a[1],a[1]+a[2],a[2]+a[0])
+    for i in range(3,n):
+        b[i] += max(b[i-2]+a[i],b[i-3]+a[i-1]+a[i],b[i-1])
+    print(b[n-1])
+    
