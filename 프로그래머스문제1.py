@@ -76,3 +76,29 @@ def solution(board, moves):
     answer = c
     return answer
 
+# 다트게임
+
+def solution(dartResult):
+    a=[]
+    d=dartResult
+    d=d.replace('10','a')
+    for i in d:
+        if i.isdigit() or i=='a':
+            if i == 'a':
+                a.append(10)
+            else:
+                a.append(int(i))
+        elif i == 'D':
+            a[-1] = a[-1]**2
+        elif i == 'T':
+            a[-1] = a[-1]**3
+        elif i == '*':
+            p=a.pop()
+            p *= 2
+            if a:
+                a[-1] *= 2
+            a.append(p)
+        elif i == '#':
+            a[-1] *= -1
+    answer=sum(a)
+    return answer
