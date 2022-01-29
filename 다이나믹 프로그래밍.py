@@ -233,3 +233,13 @@ else:
         b[i] += max(b[i-2]+a[i],b[i-3]+a[i-1]+a[i],b[i-1])
     print(b[n-1])
     
+# 11053
+
+n = int(input())
+a=list(map(int, input().split()))
+b=[1]*n
+for i in range(n):
+    for j in range(0,i):
+        if a[j] < a[i] and b[i] <= b[j]:
+            b[i] = b[j] + 1
+print(max(b))
