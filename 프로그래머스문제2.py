@@ -179,3 +179,26 @@ def solution(phone_book):
         if a == b[:len(a)]:
             return False
     return True
+
+# 주차 요금 계산
+
+def solution(fees, records):  
+    a,b,d=[0]*10000,[],{}
+    for i in records:
+        t,n,io=i.split()
+        n=int(n)
+        h,m = map(int, t.split(':'))
+        if io == 'IN':
+            d[n]=h*60+m
+        elif io == 'OUT':
+            p=d.pop(n)
+            a[n] += h*60+m-p
+    for n,p in d.items():
+        a[n] += 23*60+59-p
+    for i in a:
+        if i !=0:
+            if i <= fees[0]:
+                b.append(fees[1])
+            else:
+                b.append(((i - fees[0]-1)//fees[2]+1)*fees[3]+fees[1])            
+    return b
