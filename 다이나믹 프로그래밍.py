@@ -243,3 +243,25 @@ for i in range(n):
         if a[j] < a[i] and b[i] <= b[j]:
             b[i] = b[j] + 1
 print(max(b))
+
+# 5546
+
+n,k = map(int, input().split())
+a=[0]*n
+for _ in range(k):
+    A,B=map(int, input().split())
+    a[A-1]=B
+b=[[[0,0]for _ in range(4)] for _ in range(n)]
+if a[0] == 0 : b[0][1][0],b[0][2][0],b[0][3][0]=1,1,1
+else : b[0][a[0]][0]=1
+for i in range(1,n):
+    if a[i] != 0: 
+        b[i][a[i]][1]=b[i-1][a[i]][0]
+        for j in range(1,4):
+            if a[i] != j:b[i][a[i]][0] += sum(b[i-1][j])
+    else:
+        for j in range(1,4):
+            b[i][j][1] = b[i-1][j][0]
+            for k in range(1,4):
+                if j != k:b[i][j][0] += sum(b[i-1][k])
+print((sum(b[n-1][1])+sum(b[n-1][2])+sum(b[n-1][3]))%10000)
