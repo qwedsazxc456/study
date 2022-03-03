@@ -265,3 +265,15 @@ for i in range(1,n):
             for k in range(1,4):
                 if j != k:b[i][j][0] += sum(b[i-1][k])
 print((sum(b[n-1][1])+sum(b[n-1][2])+sum(b[n-1][3]))%10000)
+
+# 2225
+
+n,k = map(int, input().split())
+if k == 1:
+    print(1)
+else:
+    a=[1]*(n+1)
+    for i in range(k-1):
+        for j in range(n+1):
+            a.append(sum(a[i*(n+1):i*(n+1)+j+1]))
+    print(sum(a[(k-2)*(n+1):(k-1)*(n+1)])%int(1e9))
