@@ -1,17 +1,29 @@
-# 다익스트라 최단경로
+# 가장 짧은 경로를 찾는 알고리즘
+# 각 지점은 그래프에서 노드로 표현
+# 도로는 간선으로 표현
+
+# 다익스트라 최단 경로 알고리즘
+# 특정한 노드에서 출발하여 다른 모든 노드로 가능 최단 경로
 # 음의 간선이 없을 때 정상적으로 동작
 # 그리디 알고리즘으로 분류
-# 다이나믹으로 분류 되기도 한다
+# - 매 상황에서 가장 비용이 적은 노드를 선택
 
-# 출발노드설정
-# 최단 거리 테이블 초기화
-# 방문하지 않은 노드 중에서 최단 거리가 가장 짧은 노드를 선택
-# 해당 노드를 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블을 갱신
-# 3번4번 반복
+# 1. 출발 노드를 설정
+# 2. 최단 거리 테이블을 초기화
+# 3. 방문하지 않은 노드 중에서 최단 거리가 가장 짧은 노드를 선택
+# 4. 해당 노드를 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블 갱신
+# 5. 3,4번 반복
 
-# 단계를 거치며 한 번 처리된 노드의 최단 거리는 고정
-# 테이블에 각 노드까지의 최단 거리 정보가 저장
+# 알고리즘 동작 과정에서 최단 거리 테이블은 각 노드에 대한 현재까지의 최단 거리 정보 가지고 있다
+# 처리 과정에서 더 짧은 경로를 찾으면 갱신
 
+# 그리디 - 매 상황에서 방문하지 않은 가장 비용이 적은 노드를 선택
+# 단계를 거치며 한 번 처리된 노도의 최단 거리는 고정
+# - 한 단계당 하나의 노드에 대한 최단 거리를 확실히 찾는 것으로 이해
+# 다익스트라 알고리즘을 수행한 뒤에 테이블에 각노드까지의 최단 거리 정보가 저장
+# -완벽한 형태의 최단 경로를 구하려면 소스코드에 추가적인 기능 더 넣어야 함
+
+from cmath import cos
 from dis import dis
 from math import dist
 import sys
@@ -23,7 +35,7 @@ n,m = map(int, input().split())
 # 시작 노드 번호를 입력받기
 start = int(input())
 # 각 노드에 연결되어 있는 노드에 대한 정보 리스트
-graph = [[] for i in range(n+1)]
+graph = [[] for _ in range(n+1)]
 # 방믄 리스트
 visited = [False] * (n+1)
 # 최단 거리 테이블 초기화
@@ -109,3 +121,53 @@ def heapsort(iterable):
 # 다익스트라 알고리즘 개선
 # 방문하지 않은 노드 중에서 가장 짧은 노드를 선택하기 위해 힙 자료구조 이용
 
+# 다익스트라 알고리즘 개선된 방법
+
+import heapq
+
+def dijkstra(start):
+    q=[]
+    heapq.heappush(q,(0,start))
+    distance[start]=0
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist :
+            continue
+        for i in graph[now]:
+            cost = dist +i[1]
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost,i[0]))
+                
+                
+# 1753
+
+import heapq
+import sys
+input=sys.stdin.readline
+
+V, E = map(int, input().split())
+k = int(input())
+graph=[[] for _ in range(V+1)]
+for _ in range(E):
+    u,v,w = map(int, input().split())
+    graph[u].append([v,w])
+inf = int(1e9)
+distance = [inf]*(V+1)
+q=[]
+
+distance[k] = 0
+
+heapq.heappush(q, (0,k))
+while q:
+    dis,now = heapq.heappop(q)
+    if distance[now] < dis:
+        continue
+    for i in graph[now]:
+        if dis + i[1] < distance[i[0]]:
+            distance[i[0]] = dis+i[1]
+            heapq.heappush(q, (dis+i[1],i[0]))
+            
+for i in range(1,V+1):
+    print('INF' if distance[i]==inf else distance[i])
+    
