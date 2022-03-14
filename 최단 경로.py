@@ -171,3 +171,69 @@ while q:
 for i in range(1,V+1):
     print('INF' if distance[i]==inf else distance[i])
     
+
+# 플로이드 워셜 알고리즘
+
+# 단계별로 거쳐 가는 노드를 기준으로 알고리즘을 수행
+# 매 단계마다 방문하지 않은 노드 중에 최단 거리 노드 찾는 과정 필요하지 않음
+# 2차원 테이블 최단 거리 정보 저장
+# 다이나믹 프로그래밍 유형
+
+# 각 단계마다 특정한 노드 k를 거쳐 가능 경우를 확인
+
+inf = int(1e9)
+
+n = int(input())
+m = int(input())
+
+graph = [[inf]*(n+1) for _ in range(n+1)]
+
+for a in range(1, n+1):
+    for b in range(1, n+1):
+        if a == b :
+            graph[a][b] = 0
+            
+for _ in range(m):
+    a,b,c = map(int, input().split())
+    graph[a][b] = c
+    
+for k in  range(1, n+1):
+    for a in range(1, n+1):
+        for b in range(1, n+1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+            
+for a in range(1, n+1):
+    for b in range(1, n+1):
+        if graph[a][b] == inf:
+            print('inf', end=' ')
+        else:
+            print(graph[a][b] , end=' ')
+    print()
+    
+# 11404
+
+n = int(input())
+m = int(input())
+inf = int(1e9)
+graph = [[inf]*(n+1) for _ in range(n+1)]
+
+for _ in range(m):
+    a,b,c = map(int, input().split())
+    if c < graph[a][b] :
+        graph[a][b] = c
+
+for i in range(1,n+1):
+    graph[i][i] = 0
+        
+for k in range(1,n+1):
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            graph[i][j] = min(graph[i][j], graph[i][k]+graph[k][j])
+            
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if graph[i][j] == 0 or graph[i][j] == inf:
+            print(0 , end=' ')
+        else:
+            print(graph[i][j], end=' ')
+    print()
