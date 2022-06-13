@@ -127,3 +127,26 @@ for _ in range(t):
             a.reverse()
             print('['+','.join(a)+']')
             
+# 1021 
+
+from collections import deque
+n,m = map(int, input().split())
+q1 = deque([i for i in range(1,n+1)])
+q2 = deque(map(int, input().split()))
+cnt = 0
+while q2:
+    l=q2.popleft()
+    if q1.index(l) <= len(q1)//2:
+        a=q1.popleft()
+        while a != l:
+            cnt += 1
+            q1.append(a)
+            a=q1.popleft()
+    else:
+        b = q1.pop()
+        cnt += 1
+        while b != l:
+            q1.appendleft(b)
+            b = q1.pop()
+            cnt += 1
+print(cnt)
