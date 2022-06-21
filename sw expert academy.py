@@ -74,3 +74,24 @@ for i in range(1,t+1):
         n += 1
     c,d=n,max(r1,r2)-(n*(n-1)//2)
     print(f'#{i}',max(c-a,d-b)) if b < d else print(f'#{i}',c-a+b-d)
+    
+# 1208
+
+for i in range(10):
+    d = int(input())
+    h = list(map(int, input().split()))
+    for _ in range(d):
+        h[h.index(max(h))] -= 1
+        h[h.index(min(h))] += 1
+    print(f'#{i+1} {max(h)-min(h)}')
+    
+# 1206
+
+for i in range(10):
+    l = int(input())
+    b = list(map(int, input().split()))
+    s=0
+    for j in range(2,l-2):
+        if b[j] - max(b[j-2],b[j-1],b[j+1],b[j+2]) > 0: 
+            s += b[j] - max(b[j-2],b[j-1],b[j+1],b[j+2])
+    print(f'#{i+1} {s}')
